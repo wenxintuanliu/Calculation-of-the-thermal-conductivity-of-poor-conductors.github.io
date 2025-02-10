@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <title>实验公式展示</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f9f9f9;
+            margin: 0;
+            padding: 20px;
+        }
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+        .formula, .options {
+            margin: 20px 0;
+            padding: 15px;
+            background-color: #fff;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            display: none; /* 默认隐藏 */
+        }
+        button {
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            font-size: 16px;
+            margin: 10px;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+
+<h1>实验公式展示</h1>
+
+<div id="formula1" class="formula">
+    <h2>修正公式实验</h2>
+    <p>公式：λ = \(\frac{2\cdot mc \cdot h_B \cdot (R_P + 2 \cdot h_P)}{\pi \cdot d_B^2 \cdot (T_1 - T_2)(R_P+h_P)}\cdot\frac{dT}{dt}|_{T_2}\)</p>
+    <button onclick="showOptions('options1')">进入实验</button>
+</div>
+
+<div id="formula2" class="formula">
+    <h2>未修正公式实验</h2>
+    <p>公式：λ = \(\frac{4\cdot mc \cdot h_B}{\pi \cdot d_B^2 \cdot (T_1 - T_2)}\cdot\frac{dT}{dt}|_{T_2}\)</p>
+    <button onclick="showOptions('options2')">进入实验</button>
+</div>
+
+
+<div id="options1" class="options">
+    <h2>修正公式实验选项</h2>
+    <button onclick="window.location.href='xiuzheng1.html'">实验仪器信息的计算</button>
+    <button onclick="window.open('xiuzheng2.html', '_blank')">温度的数据处理</button>
+    <button onclick="window.open('xiuzheng3.html', '_blank')">导热系数及其总不确定度计算</button>
+    <button onclick="showFormulas()">返回公式</button>
+</div>
+
+<div id="options2" class="options">
+    <h2>未修正公式实验选项</h2>
+    <button onclick="window.location.href='weixiuzheng1.html'">实验仪器信息的计算</button>
+    <button onclick="window.location.href='weixiuzheng2.html'">温度的数据处理</button>
+    <button onclick="window.location.href='weixiuzheng3.html'">导热系数及其总不确定度计算</button>
+    <button onclick="showFormulas()">返回公式</button>
+</div>
+
+
+<script>
+    // 显示所有公式实验
+    document.querySelectorAll('.formula').forEach(formula => formula.style.display = 'block');
+
+    function showOptions(optionId) {
+        document.querySelectorAll('.formula').forEach(formula => formula.style.display = 'none');
+        document.querySelectorAll('.options').forEach(option => option.style.display = 'none');
+        document.getElementById(optionId).style.display = 'block';
+    }
+
+    function showFormulas() {
+        document.querySelectorAll('.options').forEach(option => option.style.display = 'none');
+        document.querySelectorAll('.formula').forEach(formula => formula.style.display = 'block');
+    }
+</script>
+
+</body>
+</html>
